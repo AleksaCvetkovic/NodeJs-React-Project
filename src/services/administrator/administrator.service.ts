@@ -19,9 +19,9 @@ export class AdministratorService {
   getAll(): Promise<Administrator[]> {
     return this.administrator.find();
   }
-  async getByEmail(email: string): Promise<Administrator | null> {
+  async getByUsername(username: string): Promise<Administrator | null> {
     const admin = await this.administrator.findOne({
-      email: email,
+      username: username,
     });
 
     if (admin) {
@@ -40,7 +40,7 @@ export class AdministratorService {
     const passwordHashString = passwordHash.digest('hex').toUpperCase();
 
     const newAdmin: Administrator = new Administrator();
-    newAdmin.email = data.email;
+    newAdmin.username = data.username;
     newAdmin.passwordHash = passwordHashString;
 
     return new Promise((resolve) => {
