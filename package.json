@@ -39,7 +39,7 @@
     "rxjs": "^6.5.4",
     "sharp": "^0.26.0",
     "typeorm": "^0.2.30",
-    "typeorm-model-generator": "^0.4.2-no-engines"
+    "typeorm-model-generator": "^0.4.4"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",

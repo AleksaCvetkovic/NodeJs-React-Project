@@ -1,18 +1,17 @@
+/* eslint-disable prettier/prettier */
 import { Controller, Get } from '@nestjs/common';
-import { Administrator } from './entities/administrator.entities';
+import { Administrator } from './entities/administrator.entity';
 import { AdministratorService } from './services/administrator/administrator.service';
 
 @Controller()
 export class AppController {
-  constructor(
-    private administratorServices: AdministratorService
-  ){}
+  constructor(private administratorServices: AdministratorService) {}
   @Get() //http://localhost:3000/
-  getIndex():string {
+  getIndex(): string {
     return 'home page';
   }
   @Get('api/administrator') //http://localhost:3000/api/administrator/
-  getAllAdmins(): Promise<Administrator[]>{
+  getAllAdmins(): Promise<Administrator[]> {
     return this.administratorServices.getAll();
   }
 }

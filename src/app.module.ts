@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DatabaseConfiguration } from 'config/database.configuration';
 import { AppController } from './app.controller';
-import { Administrator } from './entities/administrator.entities';
+import { Administrator } from './entities/administrator.entity';
 import { AdministratorService } from './services/administrator/administrator.service';
 
 @Module({

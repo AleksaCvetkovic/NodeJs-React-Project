@@ -1,7 +1,8 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Administrator } from 'src/entities/administrator.entities';
+import { Administrator } from 'src/entities/administrator.entity';
 import { Repository } from 'typeorm';
 import { addAdministratorDto } from 'src/dtos/administrator/add.administrator.dto';
 import { editAdministratorDto } from 'src/dtos/administrator/edit.administrator.dto';
