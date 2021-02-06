@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DatabaseConfiguration } from 'config/database.configuration';
-import { AppController } from './app.controller';
+import { AppController } from './controller/api/app.controller';
+import { administratorController } from './controller/api/administrator.controller';
 import { Administrator } from './entities/administrator.entity';
 import { Feature } from './entities/feature.entity';
 import { Photo } from './entities/photo.entity';
@@ -25,7 +26,7 @@ import { AdministratorService } from './services/administrator/administrator.ser
     }),
     TypeOrmModule.forFeature([Administrator]),
   ],
-  controllers: [AppController],
+  controllers: [AppController,administratorController],
   providers: [AdministratorService],
 })
 export class AppModule {}
