@@ -16,13 +16,13 @@ export class User {
   @Column("varchar", {
     name: "email",
     unique: true,
-    length: 32,
+    length: 128,
     default: () => "'0'",
   })
   email: string;
 
   @Column("varchar", {
-    name: "password_hash",
+    name: "passwordHash",
     length: 128,
     default: () => "'0'",
   })

@@ -6,13 +6,9 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { Feature } from "./feature.entity";
 import { Room } from "./room.entity";
 
-@Index("uq_room_feature_room_id_feature_id", ["roomId", "featureId"], {
-  unique: true,
-})
-@Index("fk_room_feature_feature_id", ["featureId"], {})
+@Index("fk_room_feature_room_id", ["roomId"], {})
 @Entity("room_feature", { schema: "hotel" })
 export class RoomFeature {
   @PrimaryGeneratedColumn({
@@ -22,21 +18,11 @@ export class RoomFeature {
   })
   roomFeatureId: number;
 
+  @Column("varchar", { name: "name", length: 128, default: () => "'0'" })
+  name: string;
+
   @Column("int", { name: "room_id", unsigned: true, default: () => "'0'" })
   roomId: number;
-
-  @Column("varchar", { name: "value", length: 255, default: () => "'0'" })
-  value: string;
-
-  @Column("int", { name: "feature_id", unsigned: true, default: () => "'0'" })
-  featureId: number;
-
-  @ManyToOne(() => Feature, (feature) => feature.roomFeatures, {
-    onDelete: "NO ACTION",
-    onUpdate: "CASCADE",
-  })
-  @JoinColumn([{ name: "feature_id", referencedColumnName: "featureId" }])
-  feature: Feature;
 
   @ManyToOne(() => Room, (room) => room.roomFeatures, {
     onDelete: "NO ACTION",

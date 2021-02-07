@@ -13,14 +13,14 @@ export class Administrator {
   @Column("varchar", {
     name: "username",
     unique: true,
-    length: 32,
+    length: 128,
     default: () => "'0'",
   })
   username: string;
 
   @Column("varchar", {
-    name: "password_hash",
-    length: 128,
+    name: "passwordHash",
+    length: 255,
     default: () => "'0'",
   })
   passwordHash: string;

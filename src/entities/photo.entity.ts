@@ -8,7 +8,6 @@ import {
 } from "typeorm";
 import { Room } from "./room.entity";
 
-@Index("uq_photo_image_path", ["imagePath"], { unique: true })
 @Index("fk_photo_room_id", ["roomId"], {})
 @Entity("photo", { schema: "hotel" })
 export class Photo {
@@ -18,12 +17,7 @@ export class Photo {
   @Column("int", { name: "room_id", unsigned: true, default: () => "'0'" })
   roomId: number;
 
-  @Column("varchar", {
-    name: "image_path",
-    unique: true,
-    length: 255,
-    default: () => "'0'",
-  })
+  @Column("varchar", { name: "image_path", length: 128, default: () => "'0'" })
   imagePath: string;
 
   @ManyToOne(() => Room, (room) => room.photos, {
