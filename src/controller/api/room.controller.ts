@@ -1,5 +1,6 @@
-import { Controller } from "@nestjs/common";
+import { Body, Controller, Post } from "@nestjs/common";
 import { Crud } from "@nestjsx/crud";
+import { AddRoomDto } from "src/dtos/room/add.room.dto";
 import { Room } from "src/entities/room.entity";
 import { RoomService } from "src/services/room/room.service";
 
@@ -30,9 +31,9 @@ import { RoomService } from "src/services/room/room.service";
     },
 })
 export class roomController {
-    constructor(public service: RoomService
-               
-                
-        ){ }
-
+    constructor(public service: RoomService){ }
+        @Post('createfullRoom')
+        createFullRoom(@Body() data: AddRoomDto){
+            return this.service.createFullRoom(data);
+        }
     }

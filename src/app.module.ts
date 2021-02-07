@@ -27,7 +27,7 @@ import { roomController } from './controller/api/room.controller';
       database: DatabaseConfiguration.database,
       entities: [Administrator,RoomFeature,Photo,User,Reservation,Room,RoomPrice],
     }),
-    TypeOrmModule.forFeature([Administrator, Room]),
+    TypeOrmModule.forFeature([Administrator, Room, RoomPrice,RoomFeature]),
   ],
   controllers: [AppController,administratorController, roomController],
   providers: [AdministratorService, RoomService ],
