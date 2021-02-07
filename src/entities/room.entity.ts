@@ -25,6 +25,9 @@ export class Room {
   @Column("varchar", { name: "description", length: 255, default: () => "'0'" })
   description: string;
 
+  @Column("text", { name: "name", nullable: true })
+  name: string | null;
+
   @OneToMany(() => Photo, (photo) => photo.room)
   photos: Photo[];
 

@@ -10,7 +10,7 @@ import { RoomService } from "src/services/room/room.service";
     },
     params: {
         id: {
-            field: 'room_id',
+            field: 'roomId',
             type: 'number',
             primary: true
         }
@@ -20,12 +20,12 @@ import { RoomService } from "src/services/room/room.service";
             photos: {
                 eager: true
             },
-            roomPrice: {
+            roomPrices: {
                 eager: true
             },
-            roomFeature: {
+            roomFeatures: {
                 eager: true
-            }
+            },
         }
     },
 })
