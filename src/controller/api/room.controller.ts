@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Post, UploadedFile, UseInterceptors } from "@nestjs/common";
+import { Body, Controller, Param, Post, Req, UploadedFile, UseInterceptors } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { Crud } from "@nestjsx/crud";
 import { AddRoomDto } from "src/dtos/room/add.room.dto";
@@ -9,6 +9,9 @@ import { StorageConfig } from "config/storage.config";
 import { Photo } from "src/entities/photo.entity";
 import { PhotoService } from "src/services/photo/photos.service";
 import { ApiResponse } from "src/misk/api.response.class";
+import * as fileType from 'file-type';
+import * as fs from 'fs';
+import * as sharp from 'sharp';
 
 
 
@@ -79,13 +82,16 @@ export class roomController {
                 }),
                 fileFilter: (req, file, callback) =>{
                     if(!file.originalname.match(/\.(jpg|png)$/)){
-                        callback(new Error('Bad file extension'), false);
+                        req.filrFilterError = 'Bad file extension';
+                        callback(null, false);
                         return;
                     }
                     if(!(file.mimetype.includes('jpeg') || file.mimetype.includes('pmg'))){
-                        callback(new Error('Bad file content'), false);
+                        req.filrFilterError = 'Bad file content';
+                        callback(null, false);
                         return;
                     }
+
                     callback(null, true);
                 },
                 limits: {
@@ -94,7 +100,33 @@ export class roomController {
                 }
             })
         )
-       async uploadPhoto(@Param('id') roomId: number, @UploadedFile() photo): Promise<ApiResponse | Photo>{
+       async uploadPhoto(
+           @Param('id') roomId: number, 
+           @UploadedFile() photo,
+           @Req() req 
+           ): Promise<ApiResponse | Photo>{
+               if(req.filrFilterError){
+                   return new ApiResponse('error', -4002, req.filrFilterError);
+               }
+
+               if(!photo){
+                return new ApiResponse('error', -4002, 'file not uplouded');
+               }
+               const fileTypeResoult = await fileType.fromFile(photo.path);
+               if(!fileTypeResoult){
+                    fs.unlinkSync(photo.path);
+                return new ApiResponse('error', -4002, 'file not connot detect');
+               }
+               const realMimeType =   fileTypeResoult.mime;
+
+               if(!(realMimeType.includes('jpeg') || realMimeType.includes('pmg'))){
+                fs.unlinkSync(photo.path);
+               
+                return new ApiResponse('error', -4002, 'file not connot detect');
+               }
+
+               await this.createThumb(photo);
+               await this.createSmallImage(photo);
 
             const newPhoto: Photo = new Photo();
             newPhoto.roomId = roomId;
@@ -107,4 +139,40 @@ export class roomController {
            }
            return savePhoto;
         }
+
+        async createThumb(photo){
+            const originalFilePath = photo.path;
+            const fileName = photo.filename;
+            
+    const destinationFilePath = StorageConfig.photoDestination + "thumb/" + fileName;
+        await sharp(originalFilePath)
+            .resize({
+                fit: 'cover',
+                width: StorageConfig.photoTumbSize.with,
+                height: StorageConfig.photoTumbSize.height,
+                background: {
+                    r: 255, g:255, b:255, alpha: 0.0
+                }
+            })
+            .toFile(destinationFilePath);
+
+
+        }
+        async createSmallImage(photo){
+            const originalFilePath = photo.path;
+            const fileName = photo.filename;
+            
+    const destinationFilePath = StorageConfig.photoDestination + "small/" + fileName;
+        await sharp(originalFilePath)
+            .resize({
+                fit: 'cover',
+                width: StorageConfig.photoSmallSize.with,
+                height: StorageConfig.photoSmallSize.height,
+                background: {
+                    r: 255, g:255, b:255, alpha: 0.0
+                }
+            })
+            .toFile(destinationFilePath);
+        }
+
     }
