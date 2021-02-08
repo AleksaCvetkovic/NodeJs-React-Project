@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { TypeOrmCrudService } from "@nestjsx/crud-typeorm";
 import { AddRoomDto } from "src/dtos/room/add.room.dto";
+import { Photo } from "src/entities/photo.entity";
 import { Room } from "src/entities/room.entity";
 import { RoomFeature } from "src/entities/roomFeature.entity";
 import { RoomPrice } from "src/entities/roomPrice.entity";
@@ -11,6 +12,7 @@ import { Repository } from "typeorm";
 
 @Injectable()
 export class  RoomService extends TypeOrmCrudService<Room> {
+   
     roomPrice: any;
     constructor(@InjectRepository(Room) private readonly room: Repository<Room>,
     @InjectRepository(RoomPrice)

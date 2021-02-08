@@ -15,6 +15,7 @@ import { RoomService } from './services/room/room.service';
 import { roomController } from './controller/api/room.controller';
 import { AuthController } from './controller/api/auth.controller';
 import { AuthMiddleware } from './middlewers/auth.middlweres';
+import { PhotoService } from './services/photo/photos.service';
 
 
 
@@ -29,10 +30,10 @@ import { AuthMiddleware } from './middlewers/auth.middlweres';
       database: DatabaseConfiguration.database,
       entities: [Administrator,RoomFeature,Photo,User,Reservation,Room,RoomPrice],
     }),
-    TypeOrmModule.forFeature([Administrator, Room, RoomPrice,RoomFeature]),
+    TypeOrmModule.forFeature([Administrator,RoomFeature,Photo,User,Reservation,Room,RoomPrice]),
   ],
   controllers: [AppController,administratorController, roomController, AuthController],
-  providers: [AdministratorService, RoomService ],
+  providers: [AdministratorService, RoomService , PhotoService],
   exports: [
     AdministratorService,
   ],
