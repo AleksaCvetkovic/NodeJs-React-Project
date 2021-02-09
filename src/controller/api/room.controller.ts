@@ -45,15 +45,31 @@ import { roleChekerGard } from "src/misk/role.cheker.gard";
         }
     },
     routes: {
-        exclude: ['updateOneBase', 'replaceOneBase', 'deleteOneBase'],
-    }
+       only: [
+           'getOneBase',
+           'getManyBase'
+       ],
+       getOneBase: {
+           decorators: [
+               UseGuards(roleChekerGard),
+               AllowToRoles('administrator', 'user')
+           ]
+       },
+       getManyBase: {
+        decorators: [
+            UseGuards(roleChekerGard),
+            AllowToRoles('administrator', 'user')
+        ],
+       },
+    },
+
 })
 export class roomController {
     constructor(
         public service: RoomService,
         public photoService: PhotoService){ }
 
-        @Post('createfullRoom')
+        @Post()
         @UseGuards(roleChekerGard)
         @AllowToRoles('administrator')
         createFullRoom(@Body() data: AddRoomDto){

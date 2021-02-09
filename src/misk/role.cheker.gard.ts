@@ -11,7 +11,10 @@ export class roleChekerGard implements CanActivate {
       const req: Request =  context.switchToHttp().getRequest();
       const role = req.token.role;
       
-        const allowdToRoles = this.reflektor.get<("administrator" | "user")[]>('allow_to_roles',context.getHandler());
+        const allowdToRoles = 
+        this
+        .reflektor
+        .get<("administrator" | "user")[]>('allow_to_roles',context.getHandler());
 
         if(!allowdToRoles.includes(role)){
             return false;
