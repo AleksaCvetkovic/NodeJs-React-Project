@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Param, Post, Req, UploadedFile, UseInterceptors } from "@nestjs/common";
+import { Body, Controller, Delete, Param, Patch, Post, Req, UploadedFile, UseInterceptors } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { Crud } from "@nestjsx/crud";
 import { AddRoomDto } from "src/dtos/room/add.room.dto";
@@ -12,6 +12,7 @@ import { ApiResponse } from "src/misk/api.response.class";
 import * as fileType from 'file-type';
 import * as fs from 'fs';
 import * as sharp from 'sharp';
+import { EditRoomDto } from "src/dtos/room/edit.room.dto";
 
 
 
@@ -41,6 +42,9 @@ import * as sharp from 'sharp';
             },
         }
     },
+    routes: {
+        exclude: ['updateOneBase', 'replaceOneBase', 'deleteOneBase'],
+    }
 })
 export class roomController {
     constructor(
@@ -51,6 +55,12 @@ export class roomController {
         createFullRoom(@Body() data: AddRoomDto){
             return this.service.createFullRoom(data);
         }
+
+        @Patch(':id')
+        editFullRoom(@Param('id') id: number, @Body() data: EditRoomDto){
+            return this.service.editFullRoom(id, data);
+        }
+        
         @Post(':id/uploadPhoto')
         @UseInterceptors(
             FileInterceptor('photo', {

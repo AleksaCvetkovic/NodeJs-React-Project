@@ -1,7 +1,7 @@
 import { Controller } from "@nestjs/common";
 import { Crud } from "@nestjsx/crud";
 import { RoomFeature } from "src/entities/roomFeature.entity";
-import { RoomFeatureService } from "src/services/room-feature/room.feature";
+import { RoomFeatureService } from "src/services/room-feature/room.feature.service";
 
 @Controller('api/roomFeatures')
 @Crud({
