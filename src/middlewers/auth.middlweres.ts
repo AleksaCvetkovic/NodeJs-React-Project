@@ -4,11 +4,14 @@ import { AdministratorService } from "src/services/administrator/administrator.s
 import * as jwt from 'jsonwebtoken';
 import { jwtDataDto } from "src/dtos/auth/jwt.data.dto";
 import { jwtSecret } from "config/jwt.secret";
+import { UserService } from "src/services/user/user.service";
 
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware{
-    constructor( private readonly administratorService: AdministratorService ){}
+    constructor( private readonly administratorService: AdministratorService,
+        private readonly userService: UserService
+         ){}
 
     async use(req: Request, res: Response, next: NextFunction) {
        if (!req.headers.authorization){
@@ -43,11 +46,18 @@ export class AuthMiddleware implements NestMiddleware{
         throw new HttpException('badToken', HttpStatus.UNAUTHORIZED);
        }
 
-       const administrator = await this.administratorService.getById(jwtData.administratorId);
-       if(!administrator){
-        throw new HttpException('acountNotFound', HttpStatus.UNAUTHORIZED);
-       }
+       if(jwtData.role === "administrator"){
 
+            const administrator = await this.administratorService.getById(jwtData.id);
+            if(!administrator){
+                throw new HttpException('acountNotFound', HttpStatus.UNAUTHORIZED);
+            }
+       }else if(jwtData.role === "user"){
+        const user = await this.userService.getById(jwtData.id);
+        if(!user){
+            throw new HttpException('acountNotFound', HttpStatus.UNAUTHORIZED);
+        }
+       }
        const trenutniTimestamp = new Date().getTime()/1000;
 
        if(trenutniTimestamp >= jwtData.exp){

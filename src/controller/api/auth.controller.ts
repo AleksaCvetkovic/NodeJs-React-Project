@@ -10,6 +10,7 @@ import { Request } from "express";
 import { jwtSecret } from "config/jwt.secret";
 import { UserRegistrationDto } from "src/dtos/user/user.registration.dto";
 import { UserService } from "src/services/user/user.service";
+import { loginUserDto } from "src/dtos/user/login.user.dto";
 
 
 
@@ -18,8 +19,8 @@ export class AuthController{
     constructor(public administratorSerice: AdministratorService,
         public userService: UserService){}
 
-    @Post('login') //http://localhost300/auth/login
-    async doLogin(@Body() data: loginAdministratorDto,@Req() req: Request): Promise<LoginInfoDto | ApiResponse>{
+    @Post('administrator/login') //http://localhost300/auth/login
+    async doAdministratorLogin(@Body() data: loginAdministratorDto,@Req() req: Request): Promise<LoginInfoDto | ApiResponse>{
         const administrator = await this.administratorSerice.getByUsername(data.username);
 
         if(!administrator){
@@ -35,8 +36,10 @@ export class AuthController{
         }
 
         const jwtData = new jwtDataDto();
-        jwtData.administratorId = administrator.administratorId;
-        jwtData.username = administrator.username;
+        jwtData.role = "administrator";
+        jwtData.id = administrator.administratorId;
+        jwtData.identity = administrator.username;
+
         let sada = new Date();
         sada.setDate(sada.getDate()+14);
         const istekTimestemp = sada.getTime() /1000;
@@ -60,4 +63,44 @@ export class AuthController{
     async userRegister(@Body() data: UserRegistrationDto){
         return await this.userService.register(data);
     }
+    @Post('user/login') //http://localhost300/auth/login
+    async doUserLogin(@Body() data: loginUserDto,@Req() req: Request): Promise<LoginInfoDto | ApiResponse>{
+        const user = await this.userService.getByEmail(data.email);
+
+        if(!user){
+            return new Promise(resolve =>{
+                resolve(new ApiResponse('error', -3001))
+            })
+        }
+            const passwordHash = crypto.createHash('sha512');
+            passwordHash.update(data.password);
+            const passwordHashString = passwordHash.digest('hex').toUpperCase();
+        if (user.passwordHash !== passwordHashString){
+            return new Promise (resolve => resolve(new ApiResponse('error', -3002)));
+        }
+
+        const jwtData = new jwtDataDto();
+        jwtData.role = "user";
+        jwtData.id = user.userId;
+        jwtData.identity = user.email;
+
+        let sada = new Date();
+        sada.setDate(sada.getDate() + 14);
+        const istekTimestemp = sada.getTime() /1000;
+        jwtData.exp = istekTimestemp;
+
+        jwtData.ip = req.ip.toString();
+        jwtData.ua = req.headers["user-agent"];
+
+        let token: string = jwt.sign(jwtData.toPlainObject(),jwtSecret);
+
+        const responseObject = new LoginInfoDto(
+            user.userId,
+            user.email,
+            token
+        );
+
+        return new Promise(resolve => resolve(responseObject));
+    }
+
 }
