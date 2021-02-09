@@ -37,7 +37,7 @@ export class AuthController{
         let sada = new Date();
         sada.setDate(sada.getDate()+14);
         const istekTimestemp = sada.getTime() /1000;
-        jwtData.ext = istekTimestemp;
+        jwtData.exp = istekTimestemp;
 
         jwtData.ip = req.ip.toString();
         jwtData.ua = req.headers["user-agent"];
