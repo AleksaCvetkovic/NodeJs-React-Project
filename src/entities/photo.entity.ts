@@ -8,6 +8,7 @@ import {
 } from "typeorm";
 import { Room } from "./room.entity";
 
+
 @Index("fk_photo_room_id", ["roomId"], {})
 @Entity("photo", { schema: "hotel" })
 export class Photo {

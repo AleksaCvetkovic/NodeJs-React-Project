@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Reservation } from "./reservation.entity";
+import * as Validator from 'class-validator';
 
 @Index("uq_user_email", ["email"], { unique: true })
 @Entity("user", { schema: "hotel" })
@@ -19,6 +20,12 @@ export class User {
     length: 128,
     default: () => "'0'",
   })
+  @Validator.IsEmail({
+    allow_ip_domain: false,
+    allow_utf8_local_part: true,
+    require_tld: true,
+  })
+  @Validator.IsNotEmpty()
   email: string;
 
   @Column("varchar", {
@@ -26,6 +33,9 @@ export class User {
     length: 128,
     default: () => "'0'",
   })
+  @Validator.IsString()
+  @Validator.IsNotEmpty()
+  @Validator.IsHash('sha512')
   passwordHash: string;
 
   @OneToMany(() => Reservation, (reservation) => reservation.user)

@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Room } from "./room.entity";
+import * as Validator from 'class-validator';
 
 @Index("fk_room_price_room_id", ["roomId"], {})
 @Entity("room_price", { schema: "hotel" })
@@ -28,6 +29,13 @@ export class RoomPrice {
     scale: 2,
     default: () => "'0.00'",
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsNumber({
+    allowInfinity: false,
+    allowNaN: false,
+    maxDecimalPlaces: 2,
+  })
+  @Validator.IsPositive()
   price: string;
 
   @ManyToOne(() => Room, (room) => room.roomPrices, {

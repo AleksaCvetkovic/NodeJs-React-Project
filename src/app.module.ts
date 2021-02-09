@@ -19,6 +19,7 @@ import { PhotoService } from './services/photo/photos.service';
 import { RoomFeatureService } from './services/room-feature/room.feature.service';
 import { RoomFeatureController } from './controller/api/roomFeature.controller';
 import { UserService } from './services/user/user.service';
+import { ReservationService } from './services/reservation/reservtion.service';
 
 
 
@@ -35,8 +36,18 @@ import { UserService } from './services/user/user.service';
     }),
     TypeOrmModule.forFeature([Administrator,RoomFeature,Photo,User,Reservation,Room,RoomPrice]),
   ],
-  controllers: [AppController,administratorController, roomController, AuthController, RoomFeatureController],
-  providers: [AdministratorService, RoomService , PhotoService,RoomFeatureService,UserService],
+  controllers: [AppController,
+    administratorController,
+     roomController, 
+     AuthController,
+      RoomFeatureController],
+  providers: [
+    AdministratorService, 
+    RoomService ,
+     PhotoService,
+     RoomFeatureService,
+     UserService,
+    ReservationService],
   exports: [
     AdministratorService,
     UserService,
