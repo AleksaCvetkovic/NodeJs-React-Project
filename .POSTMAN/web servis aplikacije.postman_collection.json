@@ -1,0 +1,2137 @@
+{
+	"info": {
+		"_postman_id": "fb752cd1-ab32-4087-a25c-dc205297f711",
+		"name": "web servis aplikacije",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Administrator",
+			"item": [
+				{
+					"name": "AddNewAdministrator",
+					"item": [
+						{
+							"name": "AddNewAdministrator",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/administrator/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"administrator",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "AddNewAdministrator",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"nnikolic\",\r\n    \"password\": \"98765\"\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/administrator/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"administrator",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "189"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"bd-DrHIMdamHBqdeVSepbc0oXoziHw\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 06 Feb 2021 17:32:48 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"username\": \"nnikolic\",\n    \"passwordHash\": \"81369DDC64EBB26E7FF2D0B2CC3DB8ADD14E13754114F45A297D3F18684CCC93B4B66725AC43E9D6ED4309D5E6E1B9B33473025E8E343110F515E0BF1E7332CD\",\n    \"administratorId\": 4\n}"
+								}
+							]
+						},
+						{
+							"name": "AddNewAdministraor-fail",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"nnikolic\",\r\n    \"password\": \"98765\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/administrator/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"administrator",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "AddNewAdministraor-fail",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"nnikolic\",\r\n    \"password\": \"98765\"\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/administrator/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"administrator",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "52"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"34-jCZ+m/H75FkbgN2HzL7GYrvStmo\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 06 Feb 2021 18:27:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"massage\": null,\n    \"statusCode\": -1001\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "GetAllAdministrator",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/administrator/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"administrator",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetAllAdministrator",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/administrator/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"administrator",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "131"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"83-JVDqCVCq9x81fLNl12AIOoj+FTo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 Feb 2021 13:40:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"administratorId\": 1,\n        \"username\": \"pera\",\n        \"passwordHash\": \"12345\"\n    },\n    {\n        \"administratorId\": 2,\n        \"username\": \"aleksa\",\n        \"passwordHash\": \"5321567\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "getSingleAdministraotr",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/administrator/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"administrator",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getSingleAdministraotr",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/administrator/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"administrator",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-6heE4lKlTnUle6rzbi1iVGTYTIk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 Feb 2021 16:23:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"administratorId\": 1,\n    \"username\": \"pera\",\n    \"passwordHash\": \"12345\"\n}"
+						}
+					]
+				},
+				{
+					"name": "EditAdministrator",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"nova lozinka\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/administrator/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"administrator",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "EditAdministrator",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"nova lozinka\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/administrator/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"administrator",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "185"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b9-T3xhDhpNwTxGAhVZL6m7VS8IoR4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 Feb 2021 18:35:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"administratorId\": 1,\n    \"username\": \"pera\",\n    \"passwordHash\": \"551093781D2C4A37F8649A9523657EB8B95C428C94FB821374E6E4D4514AFFD6F0F1CEDC74BC71E1FDB1DA7E3CAF28A74D9A53839E1FFBEB201BA53EFA71AB33\"\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Room",
+			"item": [
+				{
+					"name": "CreateFull",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"novaSoba1\",\r\n    \"except\": \"kratak opis\",\r\n    \"description\": \"dugacak opis\",\r\n    \"price\": 1234,\r\n    \"features\": [\r\n        \r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/room/createfullRoom",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"room",
+								"createfullRoom"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CreateFull",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"novaSoba\",\r\n    \"except\": \"kratak opis\",\r\n    \"description\": \"dugacak opis\",\r\n    \"price\": 1234,\r\n    \"features\": [\r\n        \r\n    ]\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/room/createfullRoom",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"room",
+										"createfullRoom"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "153"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"99-ZzYZrrYKsFayUwc859gAXetM0No\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 Feb 2021 19:18:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"roomId\": 20,\n    \"status\": \"dostupna\",\n    \"except\": \"kratak opis\",\n    \"imagePath\": \"0\",\n    \"description\": \"dugacak opis\",\n    \"name\": \"novaSoba\",\n    \"roomFeatures\": [],\n    \"roomPrices\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "uploadRoomPhoto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/Aleksa/Desktop/th.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/room/1/uploadPhoto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"room",
+								"1",
+								"uploadPhoto"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "uploadRoomPhoto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "/C:/Users/Aleksa/Desktop/th.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/room/1/uploadPhoto",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"room",
+										"1",
+										"uploadPhoto"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-aqP9awszv7Yn97KDeqQ5UrDzc7M\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Feb 2021 15:54:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"roomId\": 1,\n    \"imagePath\": \"202128-579881010371-th.jpg\",\n    \"photoId\": 3\n}"
+						}
+					]
+				},
+				{
+					"name": "getSingleRoom",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/room/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"room",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getSingleRoom",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/room/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"room",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "438"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b6-9KzVz3tjgeEfbmiYmiDZxKrSp7s\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Feb 2021 15:59:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"roomId\": 1,\n    \"status\": \"dostupna\",\n    \"except\": \"afsafsfafs\",\n    \"imagePath\": \"1242567dfo\",\n    \"description\": \"asshhsdh54545sdhsh\",\n    \"name\": \"soba1\",\n    \"photos\": [\n        {\n            \"photoId\": 1,\n            \"roomId\": 1,\n            \"imagePath\": \"asd//picture.doc\"\n        },\n        {\n            \"photoId\": 3,\n            \"roomId\": 1,\n            \"imagePath\": \"202128-579881010371-th.jpg\"\n        }\n    ],\n    \"roomPrices\": [\n        {\n            \"roomPriceId\": 1,\n            \"roomId\": 1,\n            \"price\": \"1234.00\"\n        }\n    ],\n    \"roomFeatures\": [\n        {\n            \"roomFeatureId\": 1,\n            \"name\": \"terasa\",\n            \"roomId\": 1\n        },\n        {\n            \"roomFeatureId\": 3,\n            \"name\": \"televizor\",\n            \"roomId\": 1\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Room",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/room/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"room",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Rooms",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/room/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"room",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4462"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"116e-bsPPHts+BcdKjGrfy4V4yjwc+K8\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Feb 2021 10:48:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"roomId\": 1,\n        \"status\": \"dostupna\",\n        \"except\": \"afsafsfafs\",\n        \"imagePath\": \"1242567dfo\",\n        \"description\": \"asshhsdh54545sdhsh\",\n        \"name\": \"soba1\",\n        \"photos\": [\n            {\n                \"photoId\": 1,\n                \"roomId\": 1,\n                \"imagePath\": \"asd//picture.doc\"\n            },\n            {\n                \"photoId\": 3,\n                \"roomId\": 1,\n                \"imagePath\": \"202128-579881010371-th.jpg\"\n            }\n        ],\n        \"roomPrices\": [\n            {\n                \"roomPriceId\": 1,\n                \"roomId\": 1,\n                \"price\": \"1234.00\"\n            }\n        ],\n        \"roomFeatures\": [\n            {\n                \"roomFeatureId\": 1,\n                \"name\": \"terasa\",\n                \"roomId\": 1\n            },\n            {\n                \"roomFeatureId\": 3,\n                \"name\": \"televizor\",\n                \"roomId\": 1\n            }\n        ]\n    },\n    {\n        \"roomId\": 2,\n        \"status\": \"dostupna\",\n        \"except\": \"asfasfasf\",\n        \"imagePath\": \"dgsgsdhsdh\",\n        \"description\": \"dgsdgsdgsdgsg\",\n        \"name\": \"sala2\",\n        \"photos\": [],\n        \"roomPrices\": [\n            {\n                \"roomPriceId\": 2,\n                \"roomId\": 2,\n                \"price\": \"42.00\"\n            }\n        ],\n        \"roomFeatures\": [\n            {\n                \"roomFeatureId\": 2,\n                \"name\": \"balkon\",\n                \"roomId\": 2\n            },\n            {\n                \"roomFeatureId\": 4,\n                \"name\": \"vina\",\n                \"roomId\": 2\n            }\n        ]\n    },\n    {\n        \"roomId\": 3,\n        \"status\": \"nedostupna\",\n        \"except\": \"asfasfasf\",\n        \"imagePath\": \"gdsgsdgsd\",\n        \"description\": \"gsdgasa\",\n        \"name\": \"sala1\",\n        \"photos\": [],\n        \"roomPrices\": [],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 4,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 5,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 6,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 7,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 8,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 9,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 10,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [\n            {\n                \"roomPriceId\": 3,\n                \"roomId\": 10,\n                \"price\": \"1234.00\"\n            }\n        ],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 11,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [\n            {\n                \"roomPriceId\": 4,\n                \"roomId\": 11,\n                \"price\": \"1234.00\"\n            }\n        ],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 12,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [\n            {\n                \"roomPriceId\": 5,\n                \"roomId\": 12,\n                \"price\": \"1234.00\"\n            }\n        ],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 13,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [\n            {\n                \"roomPriceId\": 6,\n                \"roomId\": 13,\n                \"price\": \"1234.00\"\n            }\n        ],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 14,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [\n            {\n                \"roomPriceId\": 7,\n                \"roomId\": 14,\n                \"price\": \"1234.00\"\n            }\n        ],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 15,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [\n            {\n                \"roomPriceId\": 8,\n                \"roomId\": 15,\n                \"price\": \"1234.00\"\n            }\n        ],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 16,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [\n            {\n                \"roomPriceId\": 9,\n                \"roomId\": 16,\n                \"price\": \"1234.00\"\n            }\n        ],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 17,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [\n            {\n                \"roomPriceId\": 10,\n                \"roomId\": 17,\n                \"price\": \"1234.00\"\n            }\n        ],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 18,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [\n            {\n                \"roomPriceId\": 11,\n                \"roomId\": 18,\n                \"price\": \"1234.00\"\n            }\n        ],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 19,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [\n            {\n                \"roomPriceId\": 12,\n                \"roomId\": 19,\n                \"price\": \"1234.00\"\n            }\n        ],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 20,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba\",\n        \"photos\": [],\n        \"roomPrices\": [\n            {\n                \"roomPriceId\": 13,\n                \"roomId\": 20,\n                \"price\": \"1234.00\"\n            }\n        ],\n        \"roomFeatures\": []\n    },\n    {\n        \"roomId\": 21,\n        \"status\": \"dostupna\",\n        \"except\": \"kratak opis\",\n        \"imagePath\": \"0\",\n        \"description\": \"dugacak opis\",\n        \"name\": \"novaSoba1\",\n        \"photos\": [],\n        \"roomPrices\": [\n            {\n                \"roomPriceId\": 14,\n                \"roomId\": 21,\n                \"price\": \"1234.00\"\n            }\n        ],\n        \"roomFeatures\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "editSingleRoom",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"zavrsna soba\",\r\n    \"except\": \"vrlo kratak opis sobe\",\r\n    \"description\": \"vrlo dugacak opis sobe\",\r\n    \"status\": \"dostupna\",\r\n    \"price\": \"1234\",\r\n    \"features\":  \"null\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/room/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"room",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "editSingleRoom",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"zavrsna soba\",\r\n    \"except\": \"vrlo kratak opis sobe\",\r\n    \"description\": \"vrlo dugacak opis sobe\",\r\n    \"status\": \"dostupna\",\r\n    \"price\": \"1234\",\r\n    \"features\":  \"null\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/room/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"room",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "399"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"18f-mBWLMVsGHoSRRRVZdkt4yApsofU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Feb 2021 13:10:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"roomId\": 1,\n    \"status\": \"dostupna\",\n    \"except\": \"vrlo kratak opis sobe\",\n    \"imagePath\": \"1242567dfo\",\n    \"description\": \"vrlo dugacak opis sobe\",\n    \"name\": \"zavrsna soba\",\n    \"roomFeatures\": [\n        {\n            \"roomFeatureId\": 7,\n            \"name\": \"0\",\n            \"roomId\": 1\n        },\n        {\n            \"roomFeatureId\": 8,\n            \"name\": \"0\",\n            \"roomId\": 1\n        },\n        {\n            \"roomFeatureId\": 9,\n            \"name\": \"0\",\n            \"roomId\": 1\n        },\n        {\n            \"roomFeatureId\": 10,\n            \"name\": \"0\",\n            \"roomId\": 1\n        }\n    ],\n    \"roomPrices\": [\n        {\n            \"roomPriceId\": 1,\n            \"roomId\": 1,\n            \"price\": \"1234.00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "editSingleRoom with value",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"zavrsna soba\",\r\n    \"except\": \"vrlo kratak opis sobe\",\r\n    \"description\": \"vrlo dugacak opis sobe\",\r\n    \"status\": \"dostupna\",\r\n    \"price\": \"1234\",\r\n    \"features\":  [{\r\n        \"name\":\"garderober\",\r\n        \"featureId\": 1\r\n    },\r\n     {\r\n        \"name\":\"kuhinja\",\r\n        \"featureId\": 2\r\n    }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/room/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"room",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "editSingleRoom with value",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"zavrsna soba\",\r\n    \"except\": \"vrlo kratak opis sobe\",\r\n    \"description\": \"vrlo dugacak opis sobe\",\r\n    \"status\": \"dostupna\",\r\n    \"price\": \"1234\",\r\n    \"features\":  [{\r\n        \"name\":\"garderober\",\r\n        \"featureId\": 1\r\n    },\r\n     {\r\n        \"name\":\"kuhinja\",\r\n        \"featureId\": 2\r\n    }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/room/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"room",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "331"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14b-eMG1//7oXImAtzqAkgkBHJVupk8\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Feb 2021 13:17:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"roomId\": 1,\n    \"status\": \"dostupna\",\n    \"except\": \"vrlo kratak opis sobe\",\n    \"imagePath\": \"1242567dfo\",\n    \"description\": \"vrlo dugacak opis sobe\",\n    \"name\": \"zavrsna soba\",\n    \"roomFeatures\": [\n        {\n            \"roomFeatureId\": 11,\n            \"name\": \"garderober\",\n            \"roomId\": 1\n        },\n        {\n            \"roomFeatureId\": 12,\n            \"name\": \"kuhinja\",\n            \"roomId\": 1\n        }\n    ],\n    \"roomPrices\": [\n        {\n            \"roomPriceId\": 1,\n            \"roomId\": 1,\n            \"price\": \"1234.00\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "editSingleRoomwith",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"zavrsna soba\",\r\n    \"except\": \"vrlo kratak opis sobe\",\r\n    \"description\": \"vrlo dugacak opis sobe\",\r\n    \"status\": \"dostupna\",\r\n    \"price\": \"1234\",\r\n    \"features\":  \"null\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/room/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"room",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "399"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"18f-mBWLMVsGHoSRRRVZdkt4yApsofU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Feb 2021 13:10:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"roomId\": 1,\n    \"status\": \"dostupna\",\n    \"except\": \"vrlo kratak opis sobe\",\n    \"imagePath\": \"1242567dfo\",\n    \"description\": \"vrlo dugacak opis sobe\",\n    \"name\": \"zavrsna soba\",\n    \"roomFeatures\": [\n        {\n            \"roomFeatureId\": 7,\n            \"name\": \"0\",\n            \"roomId\": 1\n        },\n        {\n            \"roomFeatureId\": 8,\n            \"name\": \"0\",\n            \"roomId\": 1\n        },\n        {\n            \"roomFeatureId\": 9,\n            \"name\": \"0\",\n            \"roomId\": 1\n        },\n        {\n            \"roomFeatureId\": 10,\n            \"name\": \"0\",\n            \"roomId\": 1\n        }\n    ],\n    \"roomPrices\": [\n        {\n            \"roomPriceId\": 1,\n            \"roomId\": 1,\n            \"price\": \"1234.00\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "administratorLogin",
+					"item": [
+						{
+							"name": "login-fail username",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin1\",\r\n    \"password\": \"admin\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "login-fail username",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"admin1\",\r\n    \"password\": \"admin\"\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:3000/auth/login/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"auth",
+												"login",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "52"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"34-SUsoemLMHIyOHbzIm/iM6mJnkf0\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 08 Feb 2021 10:46:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"massage\": null,\n    \"statusCode\": -3001\n}"
+								}
+							]
+						},
+						{
+							"name": "login-fail password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"admin1\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "login-fail password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"admin1\"\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:3000/auth/login/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"auth",
+												"login",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "52"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"34-476mQWhPkRPoU1hRDnEkrWSo/Qw\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 08 Feb 2021 10:48:27 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"massage\": null,\n    \"statusCode\": -3002\n}"
+								}
+							]
+						},
+						{
+							"name": "loginsucess",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\": \"admin\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/administrator/login/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"administrator",
+										"login",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "loginsucess",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\": \"admin\"\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:3000/auth/login/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"auth",
+												"login",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "291"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"123-WhMrJZgAjMn7Eco4qGg8ONidXzI\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 08 Feb 2021 10:49:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"administratorId\": 5,\n    \"username\": \"admin\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbmlzdHJhdG9ySWQiOjUsInVzZXJuYW1lIjoiYWRtaW4iLCJleHQiOjE2MTM5OTA5NzMuMjM3LCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yNi4xMCIsImlhdCI6MTYxMjc4MTM3M30.GoTseKXU586q9CsuPXWekp1U1vBdR80-pILgN7rGD-c\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "userLogin",
+					"item": [
+						{
+							"name": "NewUserRegister",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"ppetrovic@gmail.com\",\r\n    \"password\": \"user\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/user/register/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"user",
+										"register",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "NewUserRegister",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"ppetrovic@gmail.com\",\r\n    \"password\": \"user\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/auth/user/register/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"auth",
+												"user",
+												"register",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "188"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"bc-jEoxjuMNvU3ytGPhA0Eljd6NpUQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 09 Feb 2021 13:44:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"email\": \"ppetrovic@gmail.com\",\n    \"passwordHash\": \"B14361404C078FFD549C03DB443C3FEDE2F3E534D73F78F77301ED97D4A436A9FD9DB05EE8B325C0AD36438B43FEC8510C204FC1C1EDB21D0941C00E9E2C1CE2\",\n    \"userId\": 1\n}"
+								},
+								{
+									"name": "NewUserRegisterFailDuplicate user acount",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"ppetrovic@gmail.com\",\r\n    \"password\": \"user\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/auth/user/register/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"auth",
+												"user",
+												"register",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "72"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"48-+FkU1y+FUioyaS2cZYu6nov1L70\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 09 Feb 2021 13:45:26 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"massage\": \"acount cant be created\",\n    \"statusCode\": -6001\n}"
+								}
+							]
+						},
+						{
+							"name": "loginsucess",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"ppetrovic@gmail.com\",\r\n    \"password\": \"user\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/user/login/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"user",
+										"login",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "bad user name",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\":\"ppetrovic@gmail.com1\",\r\n    \"password\": \"user\"\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:3000/auth/user/login/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"auth",
+												"user",
+												"login",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "52"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"34-SUsoemLMHIyOHbzIm/iM6mJnkf0\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 09 Feb 2021 14:46:37 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"massage\": null,\n    \"statusCode\": -3001\n}"
+								},
+								{
+									"name": "bad password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\":\"ppetrovic@gmail.com\",\r\n    \"password\": \"use1r\"\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:3000/auth/user/login/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"auth",
+												"user",
+												"login",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "52"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"34-476mQWhPkRPoU1hRDnEkrWSo/Qw\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 09 Feb 2021 14:47:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"error\",\n    \"massage\": null,\n    \"statusCode\": -3002\n}"
+								},
+								{
+									"name": "loginsucess",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\":\"ppetrovic@gmail.com\",\r\n    \"password\": \"user\"\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:3000/auth/user/login/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"auth",
+												"user",
+												"login",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "309"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"135-V8cxpMmyKNd7H0R/rSxysXtVsNs\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 09 Feb 2021 14:44:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"identity\": \"ppetrovic@gmail.com\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjoxLCJpZGVudGl0eSI6InBwZXRyb3ZpY0BnbWFpbC5jb20iLCJleHAiOjE2MTQwOTE0ODQuNSwiaXAiOiI6OjEiLCJ1YSI6IlBvc3RtYW5SdW50aW1lLzcuMjYuMTAiLCJpYXQiOjE2MTI4ODE4ODR9.wAPJR8ltYuVbFWpcsadpVGzzIzbzdPAKrxYKABdC-50\"\n}"
+								}
+							]
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "RoomFeature",
+			"item": [
+				{
+					"name": "Get all RoomFeature",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/roomFeatures/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"roomFeatures",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all RoomFeature",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/roomFeatures/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"roomFeatures",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "726"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2d6-oLd2EIl4d3uJctIguMExG4mpyZA\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Feb 2021 10:30:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"roomFeatureId\": 1,\n        \"name\": \"terasa\",\n        \"roomId\": 1,\n        \"room\": {\n            \"roomId\": 1,\n            \"status\": \"dostupna\",\n            \"except\": \"afsafsfafs\",\n            \"imagePath\": \"1242567dfo\",\n            \"description\": \"asshhsdh54545sdhsh\",\n            \"name\": \"soba1\"\n        }\n    },\n    {\n        \"roomFeatureId\": 2,\n        \"name\": \"balkon\",\n        \"roomId\": 2,\n        \"room\": {\n            \"roomId\": 2,\n            \"status\": \"dostupna\",\n            \"except\": \"asfasfasf\",\n            \"imagePath\": \"dgsgsdhsdh\",\n            \"description\": \"dgsdgsdgsdgsg\",\n            \"name\": \"sala2\"\n        }\n    },\n    {\n        \"roomFeatureId\": 3,\n        \"name\": \"televizor\",\n        \"roomId\": 1,\n        \"room\": {\n            \"roomId\": 1,\n            \"status\": \"dostupna\",\n            \"except\": \"afsafsfafs\",\n            \"imagePath\": \"1242567dfo\",\n            \"description\": \"asshhsdh54545sdhsh\",\n            \"name\": \"soba1\"\n        }\n    },\n    {\n        \"roomFeatureId\": 4,\n        \"name\": \"vina\",\n        \"roomId\": 2,\n        \"room\": {\n            \"roomId\": 2,\n            \"status\": \"dostupna\",\n            \"except\": \"asfasfasf\",\n            \"imagePath\": \"dgsgsdhsdh\",\n            \"description\": \"dgsdgsdgsdgsg\",\n            \"name\": \"sala2\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Single RoomFeature",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/roomFeatures/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"roomFeatures",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Single RoomFeature",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/roomFeatures/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"roomFeatures",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b7-UGp2lYnOESwqEwPmyxRzXuIj/lo\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Feb 2021 11:09:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"roomFeatureId\": 1,\n    \"name\": \"terasa\",\n    \"roomId\": 1,\n    \"room\": {\n        \"roomId\": 1,\n        \"status\": \"dostupna\",\n        \"except\": \"afsafsfafs\",\n        \"imagePath\": \"1242567dfo\",\n        \"description\": \"asshhsdh54545sdhsh\",\n        \"name\": \"soba1\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit Single RoomFeature",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"radna prostorija\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/roomFeatures/4/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"roomFeatures",
+								"4",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit Single RoomFeature",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"radna prostorija\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/roomFeatures/4/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"roomFeatures",
+										"4",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "187"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bb-8mxCLIKnJqaC0+DVwh+w7OL8Ep8\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Feb 2021 11:21:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"roomFeatureId\": 4,\n    \"name\": \"radna prostorija\",\n    \"roomId\": 2,\n    \"room\": {\n        \"roomId\": 2,\n        \"status\": \"dostupna\",\n        \"except\": \"asfasfasf\",\n        \"imagePath\": \"dgsgsdhsdh\",\n        \"description\": \"dgsdgsdgsdgsg\",\n        \"name\": \"sala2\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "AddNewRoomFeature",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"basta\",\r\n    \"roomId\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/roomFeatures/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"roomFeatures",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "AddNewRoomFeature",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"basta\",\r\n    \"roomId\": \"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/roomFeatures/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"roomFeatures",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "182"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b6-TAn0WW3k0oPMXFIUwpK2ElgUnhM\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Feb 2021 11:17:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"roomFeatureId\": 6,\n    \"name\": \"basta\",\n    \"roomId\": 1,\n    \"room\": {\n        \"roomId\": 1,\n        \"status\": \"dostupna\",\n        \"except\": \"afsafsfafs\",\n        \"imagePath\": \"1242567dfo\",\n        \"description\": \"asshhsdh54545sdhsh\",\n        \"name\": \"soba1\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW5pc3RyYXRvciIsImlkIjo1LCJpZGVudGl0eSI6ImFkbWluIiwiZXhwIjoxNjE0MDkxMTg3LjIwNywiaXAiOiI6OjEiLCJ1YSI6IlBvc3RtYW5SdW50aW1lLzcuMjYuMTAiLCJpYXQiOjE2MTI4ODE1ODd9.h6dNdG6EKKiSkpgec5Z9yKsmssltYWMrP9GH-uk0-KM",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
