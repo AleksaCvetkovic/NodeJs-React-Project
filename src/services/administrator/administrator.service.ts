@@ -8,7 +8,6 @@ import { addAdministratorDto } from 'src/dtos/administrator/add.administrator.dt
 import { editAdministratorDto } from 'src/dtos/administrator/edit.administrator.dto';
 import * as crypto from 'crypto';
 import { ApiResponse } from 'src/misk/api.response.class';
-import { resolve } from 'path';
 
 
 @Injectable()
@@ -40,8 +39,8 @@ export class AdministratorService {
   add(data: addAdministratorDto): Promise<Administrator | ApiResponse> {
     const passwordHash = crypto.createHash('sha512');
     passwordHash.update(data.password);
-
     const passwordHashString = passwordHash.digest('hex').toUpperCase();
+    
     let newAdmin: Administrator = new Administrator();
     newAdmin.username = data.username;
     newAdmin.passwordHash = passwordHashString;
