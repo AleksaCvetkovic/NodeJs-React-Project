@@ -12,13 +12,11 @@ export class administratorController {
     constructor(private administratorService: AdministratorService){ }
 
 @Get()
-@UseGuards(roleChekerGard)
 @AllowToRoles('administrator')
 getAllAdmins(): Promise<Administrator[]>{
     return this.administratorService.getAll();
 }
 @Get(':id')
-@UseGuards(roleChekerGard)
 @AllowToRoles('administrator')
 getAById( @Param('id') administratorId:number): Promise<Administrator | ApiResponse>{
     return new Promise(async (resolve) => {
@@ -30,13 +28,11 @@ getAById( @Param('id') administratorId:number): Promise<Administrator | ApiRespo
         });
 }
 @Post()
-@UseGuards(roleChekerGard)
 @AllowToRoles('administrator')
 add(@Body() data: addAdministratorDto): Promise<Administrator | ApiResponse>{
     return this.administratorService.add(data);
 }
 @Patch(':id')
-@UseGuards(roleChekerGard)
 @AllowToRoles('administrator')
 edit(@Param(':id') id:number, @Body() data: editAdministratorDto):Promise<Administrator | ApiResponse>{
     return this.administratorService.editById(id,data);

@@ -15,6 +15,7 @@ import * as sharp from 'sharp';
 import { EditRoomDto } from "src/dtos/room/edit.room.dto";
 import { AllowToRoles } from "src/misk/allow.to.roles.descriptor";
 import { roleChekerGard } from "src/misk/role.cheker.gard";
+import { RoomSearcbDto } from "src/dtos/room/room.src.dto";
 
 
 
@@ -51,13 +52,13 @@ import { roleChekerGard } from "src/misk/role.cheker.gard";
        ],
        getOneBase: {
            decorators: [
-               UseGuards(roleChekerGard),
+               
                AllowToRoles('administrator', 'user')
            ]
        },
        getManyBase: {
         decorators: [
-            UseGuards(roleChekerGard),
+          
             AllowToRoles('administrator', 'user')
         ],
        },
@@ -70,21 +71,18 @@ export class roomController {
         public photoService: PhotoService){ }
 
         @Post()
-        @UseGuards(roleChekerGard)
         @AllowToRoles('administrator')
         createFullRoom(@Body() data: AddRoomDto){
             return this.service.createFullRoom(data);
         }
 
         @Patch(':id')
-        @UseGuards(roleChekerGard)
         @AllowToRoles('administrator')
         editFullRoom(@Param('id') id: number, @Body() data: EditRoomDto){
             return this.service.editFullRoom(id, data);
         }
 
         @Post(':id/uploadPhoto')
-        @UseGuards(roleChekerGard)
         @AllowToRoles('administrator')
         @UseInterceptors(
             FileInterceptor('photo', {
@@ -193,7 +191,6 @@ export class roomController {
 
         //http://localhost:3000/api/room/1/deletePhoto/23/
         @Delete(':roomId/deletePhoto/:photoId')
-        @UseGuards(roleChekerGard)
         @AllowToRoles('administrator')
         public async deletePhoto(
             @Param('roomId') roomId:number,
@@ -219,6 +216,12 @@ export class roomController {
            }
 
            return new ApiResponse('good', 0);
+        }
+
+        @Post('search')
+        @AllowToRoles('administrator', 'user')
+        async search(@Body() data: RoomSearcbDto): Promise<Room[]>{
+            return await this.service.search(data);
         }
 
     }
