@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Post, Req, UploadedFile, UseInterceptors } from "@nestjs/common";
+import { Body, Controller, Delete, Param, Post, Req, UploadedFile, UseInterceptors } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { Crud } from "@nestjsx/crud";
 import { AddRoomDto } from "src/dtos/room/add.room.dto";
@@ -155,6 +155,34 @@ export class roomController {
               
             })
             .toFile(destinationFilePath);
+        }
+
+        //http://localhost:3000/api/room/1/deletePhoto/23/
+        @Delete(':roomId/deletePhoto/:photoId')
+        public async deletePhoto(
+            @Param('roomId') roomId:number,
+            @Param('photoId') photoId:number,
+        ){
+            const photo = await this.photoService.findOne({
+                roomId: roomId,
+                photoId: photoId
+            });
+
+            if(!photo){
+                return new ApiResponse('error', -4005,'foto doesent exist');
+            }
+
+            fs.unlinkSync(StorageConfig.photo.destination + photo.imagePath);
+            fs.unlinkSync(StorageConfig.photo.destination + StorageConfig.photo.resize.thumb.directory + photo.imagePath);
+            fs.unlinkSync(StorageConfig.photo.destination + StorageConfig.photo.resize.small.directory + photo.imagePath);
+
+           const deleteResoult =  await this.photoService.deleteById(photoId);
+
+           if(deleteResoult.affected == 0){
+            return new ApiResponse('error', -4005,'foto doesent exist');
+           }
+
+           return new ApiResponse('good', 0);
         }
 
     }

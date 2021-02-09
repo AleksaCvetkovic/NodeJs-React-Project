@@ -12,7 +12,7 @@ export const StorageConfig = {
                 small: {
                     width: 320,
                     height: 250,
-                    directory: 'thumb/'
+                    directory: 'small/'
 
               },
         }
