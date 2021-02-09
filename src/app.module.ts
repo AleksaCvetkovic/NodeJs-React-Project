@@ -16,6 +16,8 @@ import { roomController } from './controller/api/room.controller';
 import { AuthController } from './controller/api/auth.controller';
 import { AuthMiddleware } from './middlewers/auth.middlweres';
 import { PhotoService } from './services/photo/photos.service';
+import { RoomFeatureService } from './services/room-feature/room.feature';
+import { RoomFeatureController } from './controller/api/roomFeature.controller';
 
 
 
@@ -32,8 +34,8 @@ import { PhotoService } from './services/photo/photos.service';
     }),
     TypeOrmModule.forFeature([Administrator,RoomFeature,Photo,User,Reservation,Room,RoomPrice]),
   ],
-  controllers: [AppController,administratorController, roomController, AuthController],
-  providers: [AdministratorService, RoomService , PhotoService],
+  controllers: [AppController,administratorController, roomController, AuthController, RoomFeatureController],
+  providers: [AdministratorService, RoomService , PhotoService,RoomFeatureService],
   exports: [
     AdministratorService,
   ],

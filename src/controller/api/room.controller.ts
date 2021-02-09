@@ -46,6 +46,7 @@ export class roomController {
     constructor(
         public service: RoomService,
         public photoService: PhotoService){ }
+
         @Post('createfullRoom')
         createFullRoom(@Body() data: AddRoomDto){
             return this.service.createFullRoom(data);
