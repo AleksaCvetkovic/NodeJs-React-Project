@@ -37,7 +37,6 @@ export class AuthMiddleware implements NestMiddleware{
         throw new HttpException('badToken', HttpStatus.UNAUTHORIZED); 
        }
 
-       const ip = req.ip.toString();
 
        if(jwtData.ip !== req.ip.toString()){
         throw new HttpException('badToken', HttpStatus.UNAUTHORIZED);
