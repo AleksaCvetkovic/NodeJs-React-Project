@@ -8,11 +8,15 @@ import { addAdministratorDto } from 'src/dtos/administrator/add.administrator.dt
 import { editAdministratorDto } from 'src/dtos/administrator/edit.administrator.dto';
 import * as crypto from 'crypto';
 import { ApiResponse } from 'src/misk/api.response.class';
+import { AdministratorToken } from 'src/entities/administrator-token';
 
 
 @Injectable()
 export class AdministratorService {
   constructor(
+    @InjectRepository(AdministratorToken)
+    private readonly administratorToken: Repository<AdministratorToken>,
+
     @InjectRepository(Administrator)
     private readonly administrator: Repository<Administrator>,
   ) {}
@@ -73,4 +77,46 @@ export class AdministratorService {
     admin.passwordHash = passwordHashString;
     return this.administrator.save(admin);
   }
+  async addToken(administratorId: number, token: string, expiresAt:string){
+    const administratorToken = new AdministratorToken();
+    administratorToken.administratorId = administratorId;
+    administratorToken.token = token;
+    administratorToken.expiresAt = expiresAt;
+
+    return await this.administratorToken.save(administratorToken);
+}
+
+async getAdministratorToken(token: string): Promise<AdministratorToken>{
+    return await this.administratorToken.findOne({
+        token: token,
+    });
+}
+
+async invalidateToken( token: string ): Promise<AdministratorToken | ApiResponse>{
+  const administratorToken =  await this.administratorToken.findOne({
+      token: token,
+  });
+  if(!administratorToken){
+      return new ApiResponse('error', -10001, ' no such token');
+  }
+
+  administratorToken.isValid = 0;
+  await this.administratorToken.save(administratorToken);
+
+  return await this.getAdministratorToken(token);
+
+}
+
+async invalidateAdministratorTokens(administratorId: number){
+
+  const administratorTokens = await this.administratorToken.find({
+      administratorId: administratorId,
+  });
+
+  const resoults = [];
+  for (const administratorToken of administratorTokens){
+  resoults.push(this.invalidateToken(administratorToken.token));
+}
+return resoults;
+}
 }

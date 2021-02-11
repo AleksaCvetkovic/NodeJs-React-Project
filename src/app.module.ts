@@ -21,6 +21,7 @@ import { RoomFeatureController } from './controller/api/roomFeature.controller';
 import { UserService } from './services/user/user.service';
 import { ReservationService } from './services/reservation/reservtion.service';
 import { UserToken } from './entities/user-token.entity';
+import { AdministratorToken } from './entities/administrator-token';
 
 
 
@@ -33,9 +34,9 @@ import { UserToken } from './entities/user-token.entity';
       username: DatabaseConfiguration.username,
       password: DatabaseConfiguration.password,
       database: DatabaseConfiguration.database,
-      entities: [Administrator,RoomFeature,Photo,User,Reservation,Room,RoomPrice, UserToken],
+      entities: [Administrator,RoomFeature,Photo,User,Reservation,Room,RoomPrice, UserToken, AdministratorToken],
     }),
-    TypeOrmModule.forFeature([Administrator,RoomFeature,Photo,User,Reservation,Room,RoomPrice, UserToken]),
+    TypeOrmModule.forFeature([AdministratorToken ,Administrator,RoomFeature,Photo,User,Reservation,Room,RoomPrice, UserToken]),
   ],
   controllers: [AppController,
     administratorController,
