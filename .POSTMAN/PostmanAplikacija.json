@@ -27,7 +27,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}"
+									"raw": "{\r\n    \"username\": \"admin1\",\r\n    \"password\": \"admin1234566\"\r\n}"
 								},
 								"url": {
 									"raw": "http://localhost:3000/api/administrator/",
@@ -1054,6 +1054,16 @@
 					]
 				}
 			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjoxLCJpZGVudGl0eSI6InBwZXRyb3ZpY0BnbWFpbC5jb20iLCJleHAiOjE2MTI5NTkyMDEuNzMyLCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yNi4xMCIsImlhdCI6MTYxMjk1ODkwMX0.zIFiBvQaG7L9YoLvTq3mPvM28foxSyUALwVOdN_LnZk",
+						"type": "string"
+					}
+				]
+			},
 			"event": [
 				{
 					"listen": "prerequest",
@@ -1533,7 +1543,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"email\":\"ppetrovic@gmail.com\",\r\n    \"password\": \"user\"\r\n}"
+									"raw": "{\r\n    \"email\":\"ppetrovic@gmail.com\",\r\n    \"password\": \"ppetrovic@gmail.com\"\r\n}"
 								},
 								"url": {
 									"raw": "http://localhost:3000/auth/user/login/",
@@ -1612,6 +1622,68 @@
 									],
 									"cookie": [],
 									"body": "{\n    \"status\": \"error\",\n    \"massage\": null,\n    \"statusCode\": -3001\n}"
+								},
+								{
+									"name": "loginsucesswithTokenRefresh",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\":\"ppetrovic@gmail.com\",\r\n    \"password\": \"ppetrovic@gmail.com\"\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:3000/auth/user/login/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"auth",
+												"user",
+												"login",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "641"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"281-cavLn3bTrXLv48/rE9Gu6UnByCQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 10 Feb 2021 11:15:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"identity\": \"ppetrovic@gmail.com\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjoxLCJpZGVudGl0eSI6InBwZXRyb3ZpY0BnbWFpbC5jb20iLCJleHAiOjE2MTI5NTYwNDkuODkxLCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yNi4xMCIsImlhdCI6MTYxMjk1NTc0OX0.SWGaKdELdg7vD9xrWJo0yZeEAx6Nbeg-CHSx7XV6Yc0\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjoxLCJpZGVudGl0eSI6InBwZXRyb3ZpY0BnbWFpbC5jb20iLCJleHAiOjE2MTU2MzQxNDkuODk0LCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yNi4xMCIsImlhdCI6MTYxMjk1NTc0OX0.rY4T08L_pZz_JDCl_9hW1xLsMQwiDxX0aMJHhXnsxzk\",\n    \"refreshTokenExpiresAt\": \"2021-03-13T11:15:49.894Z\"\n}"
 								},
 								{
 									"name": "bad password",
@@ -1738,6 +1810,99 @@
 									"body": "{\n    \"id\": 1,\n    \"identity\": \"ppetrovic@gmail.com\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjoxLCJpZGVudGl0eSI6InBwZXRyb3ZpY0BnbWFpbC5jb20iLCJleHAiOjE2MTQwOTE0ODQuNSwiaXAiOiI6OjEiLCJ1YSI6IlBvc3RtYW5SdW50aW1lLzcuMjYuMTAiLCJpYXQiOjE2MTI4ODE4ODR9.wAPJR8ltYuVbFWpcsadpVGzzIzbzdPAKrxYKABdC-50\"\n}"
 								}
 							]
+						}
+					]
+				},
+				{
+					"name": "RefreshToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjoxLCJpZGVudGl0eSI6InBwZXRyb3ZpY0BnbWFpbC5jb20iLCJleHAiOjE2MTU2MzQxNDkuODk0LCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yNi4xMCIsImlhdCI6MTYxMjk1NTc0OX0.rY4T08L_pZz_JDCl_9hW1xLsMQwiDxX0aMJHhXnsxzk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/user/refresh/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"user",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RefreshTokenUspesno",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjoxLCJpZGVudGl0eSI6InBwZXRyb3ZpY0BnbWFpbC5jb20iLCJleHAiOjE2MTU2MzQxNDkuODk0LCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yNi4xMCIsImlhdCI6MTYxMjk1NTc0OX0.rY4T08L_pZz_JDCl_9hW1xLsMQwiDxX0aMJHhXnsxzk\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/user/refresh/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"user",
+										"refresh",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "641"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"281-/egQmb97Eo/llWYOQE+UTRYn1s0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Feb 2021 12:08:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"identity\": \"ppetrovic@gmail.com\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjoxLCJpZGVudGl0eSI6InBwZXRyb3ZpY0BnbWFpbC5jb20iLCJleHAiOjE2MTI5NTkyMDEuNzMyLCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yNi4xMCIsImlhdCI6MTYxMjk1ODkwMX0.zIFiBvQaG7L9YoLvTq3mPvM28foxSyUALwVOdN_LnZk\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImlkIjoxLCJpZGVudGl0eSI6InBwZXRyb3ZpY0BnbWFpbC5jb20iLCJleHAiOjE2MTU2MzQxNDkuODk0LCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yNi4xMCIsImlhdCI6MTYxMjk1NTc0OX0.rY4T08L_pZz_JDCl_9hW1xLsMQwiDxX0aMJHhXnsxzk\",\n    \"refreshTokenExpiresAt\": \"2021-03-13T11:15:49.894Z\"\n}"
 						}
 					]
 				}
